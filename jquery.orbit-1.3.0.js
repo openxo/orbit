@@ -175,6 +175,8 @@
         $fluidPlaceholder.addClass('fluid-placeholder');
         self.$element.add(self.$wrapper).css({width: 'inherit'});
         self.$element.add(self.$wrapper).css({height: 'inherit'});
+        self.orbitWidth = self.$element.width();
+        self.orbitHeight = self.$element.height();
         
         $(window).bind('resize', function () {
           self.orbitWidth = self.$element.width();
