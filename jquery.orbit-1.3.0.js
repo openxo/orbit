@@ -27,6 +27,7 @@
       bulletThumbs: false,				// thumbnails for the bullets
       bulletThumbLocation: '',			// location from this file where thumbs will be
       afterSlideChange: $.noop,		// empty function 
+      afterInit: $.noop,
       fluid: false,             // true or ratio (ex: 4x3) to force an aspect ratio for content slides, only works from within a fluid layout
       centerBullets: true    // center bullet nav with js, turn this off if you want to position the bullet nav manually
  	  },
@@ -131,6 +132,8 @@
         this.setupBulletNav();
         this.setActiveBullet();
       }
+
+      this.options.afterInit(this, this.$slides.eq(this.activeSlide));
     },
     
     currentSlide: function () {
