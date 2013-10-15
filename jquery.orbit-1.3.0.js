@@ -322,10 +322,16 @@
     	        		
     	//Set HTML for the caption if it exists
     	if (captionLocation) {
-    	  captionHTML = $(captionLocation).html(); //get HTML from the matching HTML entity
-    		this.$caption
-      		.attr('id', captionLocation) // Add ID caption TODO why is the id being set?
-          .html(captionHTML); // Change HTML in Caption 
+            //captionHTML = $(captionLocation).html(); //get HTML from the matching HTML entity
+            //this.$caption
+                //.attr('id', captionLocation) // Add ID caption TODO why is the id being set?
+            //.html(captionHTML); // Change HTML in Caption 
+
+            captionHTML = $(captionLocation).clone(true);
+            captionHTML.attr('id', 'current-orbit-caption');
+            captionHTML.removeClass('orbit-caption');
+            this.$caption.empty().append(captionHTML);
+
           //Animations for Caption entrances
         switch (this.options.captionAnimation) {
           case 'none':
